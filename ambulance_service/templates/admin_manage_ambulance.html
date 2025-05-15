@@ -1,0 +1,153 @@
+{% include 'admin_header.html' %}
+
+<!-- <div style="margin-bottom: 1em; margin-top: 3em; background:url('/static/assets/img/hero-bg.jpg') ; height: 300px; width: 100%; background-size: cover;" >
+	</div> -->
+
+	 <div style="margin-top: 5em; margin-bottom: 12em;">
+         <center>
+		<form method="post">
+
+			<h2>Ambulance</h2>
+			<br>
+
+			{%if data['up'] %}
+
+				<table class="table table-bordered" style="width: 1000px; ">
+				<tr>
+					<th>Driver</th>
+					<td><input type="text" name="driver" value="{{data['up'][0]['driver']}}"  pattern="[A-za-z ]+$" required class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Phone Number</th>
+					<td><input type="text" name="phone" value="{{data['up'][0]['phone']}}" pattern="[0-9]{10}" required title="number format"  class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><input type="email" name="email" value="{{data['up'][0]['email']}}" required class="form-control"></td>
+				</tr>
+				<tr>
+					<th>place</th>
+					<td><input type="text" name="place" value="{{data['up'][0]['place']}}" class="form-control" pattern="[A-za-z ]+$" required></td>
+				</tr>
+				<tr>
+				    <th>Latitude</th>
+        <td><input type="text" name="lat"  class="form-control" id="lat" value="{{data['up'][0]['latitude']}}">
+        <a class="btn btn-success" onclick="myFunction();"><b>View Map</b></a>
+        </td>
+		</tr>
+		
+		<tr>
+			<th>Longitude</th>
+                        <td ><br><input type="text" name="lon"  class="form-control" id="lon" value="{{data['up'][0]['longitude']}}"></td>
+		</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" name="update" value="Update" class="btn btn-success" style="width: 150px;"></td>
+				</tr>
+	</table>
+
+			{% else %}
+			<table class="table table-bordered" style="width: 1000px;">
+				<tr>
+					<th>Driver</th>
+					<td><input type="text"  name="driver" value=""  pattern="[A-za-z ]+$" required class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Phone Number</th>
+					<td><input type="text" name="phone" value="" pattern="[0-9]{10}" required title="number format"  class="form-control"></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><input type="email" name="email" value="" required class="form-control"></td>
+				</tr>
+				<tr>
+					<th>place</th>
+					<td><input type="text" name="place" value="" class="form-control" pattern="[A-za-z ]+$" required></td>
+				</tr>
+				    <th>Latitude</th>
+        <td><input type="text" name="lat"  class="form-control" id="lat">
+        <a class="btn btn-success" onclick="myFunction();"><b>View Map</b></a>
+        </td>
+		</tr>
+
+		
+		<tr>
+			<th>Longitude</th>
+                        <td ><br><input type="text" name="lon"  class="form-control" id="lon"></td>
+		</tr>
+
+				<tr>
+					<th>User Name</th>
+					<td><input type="text" name="username" value="" class="form-control" required></td>
+				</tr>
+				<tr>
+					<th>Password</th>
+					<td><input type="Password" name="password" value="" id="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" required> 
+			</td>
+
+						</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit" name="submit" value="Sign up" class="btn btn-success" style="width: 150px;"></td>
+				</tr>
+			</table>
+			{% endif %}
+
+			<tr>
+					<div id="dvMap" style="width: 450px; height: 400px"></div>
+				</tr>
+
+
+			<table class="table table-striped" style="width: 1000px;">
+				<tr>
+					<th>#</th>
+					<th>Driver</th>
+					<th>Phone Number</th>
+					<th>Email</th>
+					<th>Place</th>
+					<th>Location</th>
+					<th></th>
+					<th></th>
+				</tr>
+				
+					{%for i in data['view'] %}
+					<tr>
+						<td>{{loop.index}}</td>
+						<td>{{i['driver']}}</td>
+						<td>{{i['phone']}}</td>
+						<td>{{i['email']}}</td>
+						<td>{{i['place']}}</td>
+						 <td><a class="btn btn-success" href="http://www.google.com/maps?q={{ i['latitude'] }},{{ i['longitude'] }}">Location</a></td>
+
+						 <td><a href="?action=update&amid={{i['ambulance_id']}}" class="btn btn-outline-info">Update</a></td>
+						 <td><a href="?action=delete&amid={{i['ambulance_id']}}" class="btn btn-outline-warning">Delete</a></td>
+					</tr>
+					{%endfor%}
+			
+			</table>
+		</form>
+	</form>
+</center>
+</div>
+
+
+			<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD3MPnSnyWwNmpnVEFkaddVvy_GWtxSejs&sensor=false"></script>
+    <script type="text/javascript">
+        // window.onload = function () {
+          function myFunction(){
+            var mapOptions = {
+                center: new google.maps.LatLng(9.9763482, 76.286272),
+                zoom: 14,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var infoWindow = new google.maps.InfoWindow();
+            var latlngbounds = new google.maps.LatLngBounds();
+            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+            google.maps.event.addListener(map, 'click', function (e) {
+                alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
+              document.getElementById('lat').value = e.latLng.lat();
+                document.getElementById('lon').value = e.latLng.lng();
+           
+
+            });
+        }
+    </script>
+{% include 'footer.html' %}

@@ -1,0 +1,96 @@
+{% include 'public_header.html' %}
+
+<!-- ======= Team Section ======= -->
+    
+	 <section id="team" class="team  ">
+      <div class="container "  data-aos="fade-up">
+
+       
+
+        <div class="row d-flex justify-content-center align-items-center"  >
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch " style="width:40%;border: 1px solid lightgrey;margin-top: 30px;box-shadow: 2px 4px 6px lightgrey;">
+            <div class="member " data-aos="fade-up" data-aos-delay="200">
+              <div class="member-img" >
+                <img src="/static/assets/img/team/team-2.jpg"  class="img-fluid" alt="">
+                <!-- <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div> -->
+              </div>
+              <div class="member-info">
+ 
+<center>
+	<form method="post">
+			<table class="table table-borderless" style="width: 420px;">
+				<h2>Login Here</h2>
+			<tr>
+				<th>User Name</th>
+				<td><input type="text" name="username" value="" class="form-control" required ></td>
+			</tr>
+			<tr>
+				<th>Password</th>
+
+				<td><input type="Password" name="password" value="" required="" class="form-control" id="id_password" autocomplete="current-password" ></td>
+
+				<td><i class="fa-eye-slash far fa-eye" id="togglePassword" style="margin-left: -40px; cursor: pointer; position: relative; top:8px"></i></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="button" value="Login" class="btn btn-outline-success" style="width: 150px;"></td>
+			</tr>
+
+			</table>
+			</form>
+			</center>
+              </div>
+            </div>
+          </div>
+
+         
+
+         
+
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+
+	
+
+			<script type="text/javascript">
+				const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#id_password');
+
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+
+  	if (togglePassword.classList[0] == 'fa-eye-slash'){
+
+  		     togglePassword.classList.remove('fa-eye-slash')
+ const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+ console.log(type)
+    	// togglePassword.type="text"
+
+    password.setAttribute('type', type);
+  	}else{
+  		togglePassword.classList="fa-eye-slash far fa-eye"
+  		const type = password.getAttribute('type') 
+
+  			togglePassword.type="password"
+
+  		    console.log(type)
+    password.setAttribute('type', type);
+  	}
+
+
+    
+  
+});
+
+			</script>
+
+
+{% include 'footer.html' %}

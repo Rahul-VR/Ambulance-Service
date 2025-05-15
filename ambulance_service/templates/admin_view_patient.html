@@ -1,0 +1,43 @@
+{% include 'admin_header.html' %}
+<div style="margin-top: 5em; margin-bottom: 12em;">
+
+	<div style="margin-bottom: 1em; margin-top: 3em; background:url('/static/assets/img/hero-bg.jpg') ; height: 300px; width: 100%; background-size: cover;" >
+	</div>
+
+<center>
+	<form method="post">
+		<h2>Patients Details</h2>
+		<table class="table table-striped" style="width: 1000px;" >
+			<tr>
+				<th>#</th>
+				<th>Patient Name</th>
+				<th>Place</th>
+				<th>Phone</th>
+				<th>Email</th>
+				<th>Status</th>
+			</tr>
+	{% for i in data['view'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{i['firstname']}} {{i['lastname']}}</td>
+				<td>{{i['place']}}</td>
+				<td>{{i['phone']}}</td>
+				<td>{{i['email']}}</td>
+				<td>{{i['user_type']}}</td>
+
+
+
+				{% if i ['user_type']=="pending"%}
+
+				<td><a href="?action=activate&lid={{i['login_id']}}">Activate</a></td>
+				<td><a href="?action=deactivate&lid={{i['login_id']}}">Deactivate</a></td>
+
+				{% endif %}
+
+			</tr>
+	{% endfor %}
+		</table>
+	</form>	
+</center>
+</div>
+{% include 'footer.html' %}

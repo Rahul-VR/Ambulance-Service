@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/ambs"
+
+    android:gravity="center"
+    tools:context=".User_registration">
+
+
+
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="360dp"
+        android:textStyle="bold|italic"
+        android:layout_height="wrap_content"
+        android:text="Registration Form"
+        android:gravity="center"
+        android:textSize="5mm"
+
+        />
+
+    <EditText
+        android:id="@+id/fname"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/layout_bg"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:ems="10"
+        android:textStyle="italic"
+        android:inputType="textPersonName"
+        android:gravity="center"
+
+        android:hint="First Name" />
+
+    <EditText
+        android:id="@+id/lname"
+        android:layout_width="360dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:background="@drawable/layout_bg"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:ems="10"
+        android:textStyle="italic"
+        android:gravity="center"
+
+        android:inputType="textPersonName"
+        android:hint="Last Name" />
+
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="360dp"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#000"
+        android:digits="0123456789"
+        android:textColor="#000"
+        android:background="@drawable/layout_bg"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:textStyle="italic"
+        android:gravity="center"
+
+        android:inputType="phone"
+        android:hint="Phone number"/>
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="360dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:background="@drawable/layout_bg"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:ems="10"
+        android:textStyle="italic"
+        android:gravity="center"
+
+        android:inputType="textEmailAddress"
+        android:hint="Email"/>
+
+    <EditText
+        android:id="@+id/place"
+        android:layout_width="360dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:background="@drawable/layout_bg"
+        android:ems="10"
+        android:gravity="center"
+        android:textStyle="italic"
+
+        android:inputType="textPersonName"
+        android:hint="Place" />
+
+
+    <EditText
+        android:id="@+id/uname"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:background="@drawable/layout_bg"
+        android:ems="10"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:hint="username" />
+
+    <EditText
+        android:id="@+id/pwd"
+        android:layout_width="360dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/layout_bg"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:textColorHint="#000"
+        android:textColor="#000"
+
+        android:inputType="textPassword"
+        android:hint="password"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ubtn"
+        android:layout_width="360dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="italic"
+        android:background="@drawable/buttonc"
+        android:layout_height="wrap_content"
+        android:paddingLeft="50dp"
+        android:text="SIGINUP" />
+
+
+    </LinearLayout>

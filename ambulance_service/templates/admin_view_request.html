@@ -1,0 +1,43 @@
+{% include 'admin_header.html' %}
+<div style="margin-bottom: 1em; margin-top: 3em; background:url('/static/assets/img/aaa') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+
+<center>
+	<form method="post">
+		<h4>Patient Request	</h4>
+		
+		<table class="table table-striped" style="width: 1200px;">
+			<tr>
+				<th>#</th>
+				<th>Patient Name</th>
+				<th>Details</th>
+				<th>Date</th>
+				<th>Status</th>
+				<th>Images</th>
+				<th>Location</th>
+				<th></th>
+				
+			</tr>
+			{% for i in data['view'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{i['firstname']}} {{i['firstname']}}</td>
+				<td>{{i['details']}}</td>
+				 <td>{{i['date']}}</td>
+				 <td>{{i['status']}}</td>
+
+				 <td><a href="/{{ i['image'] }}"><img src="/{{ i['image'] }}" width="100" height="100"></a></td>
+				
+				 <td><a class="btn btn-success" href="http://www.google.com/maps?q={{ i['latitude'] }},{{ i['longitude'] }}">Location</a></td>
+
+				 <td><a href="admin_view_payment?uid={{i['user_id']}}"  class="btn btn-primary">Payment</a></td>
+			</tr>
+			{% endfor %}
+			
+			
+			
+		</table>
+	</form>
+</center>
+
+{% include 'footer.html'%}

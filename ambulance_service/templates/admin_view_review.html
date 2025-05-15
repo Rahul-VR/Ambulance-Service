@@ -1,0 +1,28 @@
+{% include 'admin_header.html' %}
+<div style="margin-bottom: 1em; margin-top: 3em; background:url('/static/assets/img/aaa') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+
+<center>
+	<form method="post">
+		<table class="table table-striped" style="width: 1000px;">
+			<h2>Reviews And Rating</h2>
+			<tr>
+				<th>#</th>
+				<th>Rating</th>
+				<th>Review</th>
+				<th>Date</th>
+			</tr>
+			{% for i in data['view'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{i['rating']}}</td>
+				<td>{{i['review']}}</td>
+				<td>{{i['date']}}</td>
+			</tr>
+			{% endfor %}
+		</table>
+		
+	</form>
+</center>
+
+{% include 'footer.html' %}
