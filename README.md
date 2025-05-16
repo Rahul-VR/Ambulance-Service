@@ -57,7 +57,18 @@ The system helps users report accidents and request ambulances, while allowing a
 ### Admin (web)
 
 ![Image](https://github.com/user-attachments/assets/79000922-30d1-4645-88b4-4abbc89351b6)
+
 ![Image](https://github.com/user-attachments/assets/ea92c29f-4b03-4058-9d01-ce350f177340)
+
 ![Image](https://github.com/user-attachments/assets/34bc25b3-907a-4c40-8601-cacff0bf0e8c)
+
 ![Image](https://github.com/user-attachments/assets/561e1336-b932-461a-a068-b6e0e6829776)
 
+
+### User - Base User
+
+<!-- Uploading "doc_2025-05-16_15-13-58.mp4"... -->
+
+### User - Ambulance Drivers
+
+<!-- Uploading "doc_2025-05-16_15-13-45.mp4"... -->
